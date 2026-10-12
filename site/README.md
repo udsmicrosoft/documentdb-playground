@@ -1,8 +1,5 @@
 # Compatibility status
 
-**Fork preview. This is not an official compatibility support matrix.**
-
-Results apply only to the listed versions, runtime profiles, and required scenarios.
 The latest attempt is separate from the last conclusive compatibility evidence.
 
 Latest workflow attempt: [38317274839, attempt 1](https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1), started **2026-10-12 22:32:48 UTC**, workflow conclusion **success**.
