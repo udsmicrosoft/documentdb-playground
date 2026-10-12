@@ -1,0 +1,31 @@
+{
+  "conclusion": "success",
+  "errors": [],
+  "head_sha": "4889b0323d69827ba9bfc5e4bb4a0f674b9bf475",
+  "profiles": [
+    {
+      "documentdb_version": "0.117.0",
+      "integration": "mongoose",
+      "profile": "node24-linux-x64-mongoose",
+      "upstream_version": "9.11.0"
+    },
+    {
+      "documentdb_version": "0.117.0",
+      "integration": "nodejs",
+      "profile": "node24-linux-x64-async",
+      "upstream_version": "7.7.0"
+    },
+    {
+      "documentdb_version": "0.117.0",
+      "integration": "pymongo",
+      "profile": "python312-linux-x64-sync",
+      "upstream_version": "4.18.0"
+    }
+  ],
+  "repository": "udsmicrosoft/documentdb-playground",
+  "run_attempt": 1,
+  "run_id": 38317274839,
+  "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1",
+  "schema_version": 1,
+  "started_at": "2026-10-12T22:32:48Z"
+}

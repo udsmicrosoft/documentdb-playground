@@ -1,0 +1,174 @@
+{
+  "schema_version": 2,
+  "id": "0d77aab8391045fa942db768417a68fd",
+  "integration": "pymongo",
+  "repository": "https://github.com/mongodb/mongo-python-driver",
+  "owner": "@documentdb/documentdb-maintainers",
+  "profile": "python312-linux-x64-sync",
+  "suite_digest": "57aaf320be21c9d8330e36192c49aaa46b1f7e2b50ce4e9107bd18cb3a910482",
+  "documentdb": {
+    "version": "0.117.0",
+    "image": "ghcr.io/documentdb/documentdb/documentdb-local@sha256:d972e7145da660ad4892ce6f5c22039086ff5148dce7225f20b76af959cd2ce0",
+    "actual_extension_version": "0.117-0",
+    "actual_postgres_version": "17.11 (Debian 17.11-1.pgdg13+2)"
+  },
+  "upstream": {
+    "version": "4.18.0",
+    "actual_version": "4.18.0",
+    "artifact_sha256": "21a0b97c0fcb9ce63895e37642e64dbb119b27053f7b5292ca9dfb597c1bca5f",
+    "client_image": "sha256:f159e83ff5e9b2ca0be1c18762d0cf28dfb641268e8d26d808499f4613ec388f",
+    "runtime": {
+      "name": "python",
+      "version": "3.12.14"
+    },
+    "dependencies": [
+      {
+        "name": "pymongo",
+        "version": "4.18.0",
+        "sha256": "21a0b97c0fcb9ce63895e37642e64dbb119b27053f7b5292ca9dfb597c1bca5f"
+      },
+      {
+        "name": "pytest",
+        "version": "9.1.1",
+        "sha256": "37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c"
+      },
+      {
+        "name": "dnspython",
+        "version": "2.9.0",
+        "sha256": "9a4aedb833c3c1b49214d04d44d3032ab7a9135f7c1d29a549b4ff78fd82fda9"
+      },
+      {
+        "name": "iniconfig",
+        "version": "2.3.1",
+        "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+      },
+      {
+        "name": "packaging",
+        "version": "26.3",
+        "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+      },
+      {
+        "name": "pluggy",
+        "version": "1.6.0",
+        "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+      },
+      {
+        "name": "Pygments",
+        "version": "2.21.0",
+        "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+      }
+    ]
+  },
+  "expected_tests": [
+    "test_authenticated_ping",
+    "test_insert_one",
+    "test_insert_many",
+    "test_find_one",
+    "test_find_filter_projection_sort_limit",
+    "test_cursor_batches",
+    "test_count_documents",
+    "test_update_one",
+    "test_find_one_and_update",
+    "test_delete_one",
+    "test_delete_many",
+    "test_aggregate",
+    "test_create_indexes",
+    "test_list_indexes",
+    "test_drop_index",
+    "test_duplicate_key_error",
+    "test_bson_round_trip"
+  ],
+  "tests": [
+    {
+      "id": "test_authenticated_ping",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_insert_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_insert_many",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_find_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_find_filter_projection_sort_limit",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_cursor_batches",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_count_documents",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_update_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_find_one_and_update",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_delete_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_delete_many",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_aggregate",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_create_indexes",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_list_indexes",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_drop_index",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_duplicate_key_error",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_bson_round_trip",
+      "outcome": "passed",
+      "message": ""
+    }
+  ],
+  "started_at": "2026-10-12T22:33:12.590124+00:00",
+  "finished_at": "2026-10-12T22:33:49.545509+00:00",
+  "trigger": "manual",
+  "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1",
+  "demonstration": false,
+  "execution_error": null
+}

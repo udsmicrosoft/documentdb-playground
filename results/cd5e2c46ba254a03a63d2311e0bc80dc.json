@@ -1,0 +1,199 @@
+{
+  "schema_version": 2,
+  "id": "cd5e2c46ba254a03a63d2311e0bc80dc",
+  "integration": "nodejs",
+  "repository": "https://github.com/mongodb/node-mongodb-native",
+  "owner": "@documentdb/documentdb-maintainers",
+  "profile": "node24-linux-x64-async",
+  "suite_digest": "b21e920f51c10edcfca9e9a09da7b48199c02947fe2ce1ef20fe7dea79e1275f",
+  "documentdb": {
+    "version": "0.117.0",
+    "image": "ghcr.io/documentdb/documentdb/documentdb-local@sha256:d972e7145da660ad4892ce6f5c22039086ff5148dce7225f20b76af959cd2ce0",
+    "actual_extension_version": "0.117-0",
+    "actual_postgres_version": "17.11 (Debian 17.11-1.pgdg13+2)"
+  },
+  "upstream": {
+    "version": "7.7.0",
+    "actual_version": "7.7.0",
+    "artifact_sha256": "ccd19c0222a7f73ef07615d344df38f950681da84c78605d002d12588e984535",
+    "client_image": "sha256:b1e8dd79e9cd8585c1b73c4f1328ebb728adf1457a17058a9aa462017201c4bf",
+    "runtime": {
+      "name": "nodejs",
+      "version": "24.21.0"
+    },
+    "dependencies": [
+      {
+        "name": "@mongodb-js/saslprep",
+        "version": "1.5.4",
+        "sha256": "7ba70018bbc14c027b23c007759e784a5f61064790c45e7d3d285f20fa075dc1"
+      },
+      {
+        "name": "@types/webidl-conversions",
+        "version": "7.0.3",
+        "sha256": "b58d91f3582e2559b140b7a5bd0a3ad955b5cbaca2807f842ab3c9ab01cc2ba0"
+      },
+      {
+        "name": "@types/whatwg-url",
+        "version": "13.0.0",
+        "sha256": "6816671c9c679b021ae67de35517cdfbaca9bddf98499a3ee5368e7fbc2a0774"
+      },
+      {
+        "name": "bson",
+        "version": "7.3.3",
+        "sha256": "c42f774a831c60489d227674873a41ada97f92a57b9deaa4a28d77bd446e9b5e"
+      },
+      {
+        "name": "memory-pager",
+        "version": "1.5.0",
+        "sha256": "c2ce7062e76fc526fdc001dc253cf3bbc908c107998ed792092a4c4c3c47d398"
+      },
+      {
+        "name": "mongodb",
+        "version": "7.7.0",
+        "sha256": "ccd19c0222a7f73ef07615d344df38f950681da84c78605d002d12588e984535"
+      },
+      {
+        "name": "mongodb-connection-string-url",
+        "version": "7.0.2",
+        "sha256": "573b027c16a7b4a8ed0dcb522966803d8ec3685fe1efd75d46926c2894878fe6"
+      },
+      {
+        "name": "punycode",
+        "version": "2.3.1",
+        "sha256": "e4ce59f9fbac44349abab87279ab658f6b4614916bec5e088ae3be9323e193bb"
+      },
+      {
+        "name": "sparse-bitfield",
+        "version": "3.0.3",
+        "sha256": "54c15bf813909eba25f07e1aae22b863a60db6ccbcd3996e4d073a356adb3c87"
+      },
+      {
+        "name": "tr46",
+        "version": "5.1.1",
+        "sha256": "62dbfa0e7959c7bf972b157afcbedd7432116891c374b7de3f78224bd7e4d7e6"
+      },
+      {
+        "name": "webidl-conversions",
+        "version": "7.0.0",
+        "sha256": "fd4d12781018d99e2cc68cf2d997215a0b301761ab26ac2a171116960419e454"
+      },
+      {
+        "name": "whatwg-url",
+        "version": "14.2.0",
+        "sha256": "b26982a9855af10a5cd8fedbdba5ac73db4b8eab1f81528104f585039fac863e"
+      }
+    ]
+  },
+  "expected_tests": [
+    "test_authenticated_ping",
+    "test_insert_one",
+    "test_insert_many",
+    "test_find_one",
+    "test_find_filter_projection_sort_limit",
+    "test_cursor_batches",
+    "test_count_documents",
+    "test_update_one",
+    "test_find_one_and_update",
+    "test_delete_one",
+    "test_delete_many",
+    "test_aggregate",
+    "test_create_indexes",
+    "test_list_indexes",
+    "test_drop_index",
+    "test_duplicate_key_error",
+    "test_bson_round_trip"
+  ],
+  "tests": [
+    {
+      "id": "test_authenticated_ping",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_insert_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_insert_many",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_find_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_find_filter_projection_sort_limit",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_cursor_batches",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_count_documents",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_update_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_find_one_and_update",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_delete_one",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_delete_many",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_aggregate",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_create_indexes",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_list_indexes",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_drop_index",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_duplicate_key_error",
+      "outcome": "passed",
+      "message": ""
+    },
+    {
+      "id": "test_bson_round_trip",
+      "outcome": "passed",
+      "message": ""
+    }
+  ],
+  "started_at": "2026-10-12T22:33:08.147284+00:00",
+  "finished_at": "2026-10-12T22:33:40.124680+00:00",
+  "trigger": "manual",
+  "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1",
+  "demonstration": false,
+  "execution_error": null
+}
