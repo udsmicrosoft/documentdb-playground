@@ -8,19 +8,19 @@ Latest workflow attempt: [38317274839, attempt 1](https://github.com/udsmicrosof
 
 | Client / DocumentDB | Profile | Evidence | Verified cases | Last conclusive | Latest attempt | Attempted at | Details |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 9.11.0 / 0.117.0 | node24-linux-x64-mongoose | Working | 17/17 | 2026-10-12 22:33:50 UTC | Working | 2026-10-12 22:33:50 UTC | [Run](https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1) |
+| 9.11.0 / 0.117.0 | node24-linux-x64-mongoose | Stale | 17/17 | 2026-10-12 22:33:50 UTC | Working | 2026-10-12 22:33:50 UTC | [Run](https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1) |
 
 ## nodejs
 
 | Client / DocumentDB | Profile | Evidence | Verified cases | Last conclusive | Latest attempt | Attempted at | Details |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 7.7.0 / 0.117.0 | node24-linux-x64-async | Working | 17/17 | 2026-10-12 22:33:40 UTC | Working | 2026-10-12 22:33:40 UTC | [Run](https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1) |
+| 7.7.0 / 0.117.0 | node24-linux-x64-async | Stale | 17/17 | 2026-10-12 22:33:40 UTC | Working | 2026-10-12 22:33:40 UTC | [Run](https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1) |
 
 ## pymongo
 
 | Client / DocumentDB | Profile | Evidence | Verified cases | Last conclusive | Latest attempt | Attempted at | Details |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 4.18.0 / 0.117.0 | python312-linux-x64-sync | Working | 17/17 | 2026-10-12 22:33:49 UTC | Working | 2026-10-12 22:33:49 UTC | [Run](https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1) |
+| 4.18.0 / 0.117.0 | python312-linux-x64-sync | Stale | 17/17 | 2026-10-12 22:33:49 UTC | Working | 2026-10-12 22:33:49 UTC | [Run](https://github.com/udsmicrosoft/documentdb-playground/actions/runs/38317274839/attempts/1) |
 
 Timestamps describe executions, not dashboard refreshes. Intentional-failure demonstrations are excluded. Freshness follows the registry and execution-input digests.
 

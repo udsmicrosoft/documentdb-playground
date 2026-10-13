@@ -37,7 +37,7 @@
         "test_schema_validation",
         "test_bson_round_trip"
       ],
-      "state": "Working",
+      "state": "Stale",
       "trigger": "manual",
       "upstream_version": "9.11.0"
     },
@@ -78,7 +78,7 @@
         "test_duplicate_key_error",
         "test_bson_round_trip"
       ],
-      "state": "Working",
+      "state": "Stale",
       "trigger": "manual",
       "upstream_version": "7.7.0"
     },
@@ -119,7 +119,7 @@
         "test_duplicate_key_error",
         "test_bson_round_trip"
       ],
-      "state": "Working",
+      "state": "Stale",
       "trigger": "manual",
       "upstream_version": "4.18.0"
     }
