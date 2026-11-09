@@ -30,6 +30,7 @@ from compatibility.results import (
 
 OFFICIAL_REPOSITORY = "documentdb/documentdb-playground"
 WORKFLOW_PATH = ".github/workflows/compatibility.yml"
+SOURCE_EVENTS = ("workflow_dispatch", "schedule")
 DEMONSTRATION_TITLE = "Ecosystem compatibility (demonstration)"
 PROFILE_FIELDS = ("integration", "documentdb_version", "upstream_version", "profile")
 COLORS = {
@@ -90,7 +91,7 @@ def source_attempt(
         run["repository"]["full_name"] != repository
         or run["head_repository"]["full_name"] != repository
         or run["head_branch"] != branch
-        or run["event"] != "workflow_dispatch"
+        or run["event"] not in SOURCE_EVENTS
         or run["status"] != "completed"
         or workflow["path"] != WORKFLOW_PATH
         or workflow["id"] != run["workflow_id"]
@@ -188,7 +189,7 @@ def selected_profiles(
     ):
         raise ValueError("Invalid combined report envelope")
     trigger = summary.get("trigger", "manual")
-    if trigger not in {"manual", "upstream_release"} or (
+    if trigger not in {"manual", "scheduled", "documentdb_release", "upstream_release"} or (
         trigger == "upstream_release"
         and not re.fullmatch(r"[a-f0-9]{64}", summary.get("detection_id") or "")
     ):
@@ -344,7 +345,19 @@ def snapshot(
             attempt["run_attempt"],
         )
     )
-    rows = dashboard_rows(normal, registry, now, expected_runs=expected)
+    # Rank evidence by its workflow attempt; test start times from overlapping runs can invert.
+    position = {attempt["run_url"]: index for index, attempt in enumerate(attempts)}
+    rows = dashboard_rows(
+        normal,
+        registry,
+        now,
+        expected_runs=expected,
+        order=lambda result: (
+            position.get(result["run_url"], -1),
+            timestamp(result["started_at"]),
+            result["id"],
+        ),
+    )
     for row in rows:
         key = (
             row["integration"],
@@ -353,25 +366,20 @@ def snapshot(
             row["profile"],
             False,
         )
-        for attempt in attempts:
-            if key not in {profile_key(profile) for profile in attempt["profiles"]}:
-                continue
-            source_records = [
-                result for result in row["history"] if result["run_url"] == attempt["run_url"]
-            ]
-            newer_record = any(
-                timestamp(result["started_at"]) > timestamp(attempt["started_at"])
-                and result["run_url"] != attempt["run_url"]
-                for result in row["history"]
+        selected = [
+            index
+            for index, attempt in enumerate(attempts)
+            if key in {profile_key(profile) for profile in attempt["profiles"]}
+        ]
+        recorded = [position.get(result["run_url"], -1) for result in row.pop("history")]
+        if selected and selected[-1] > max(recorded, default=-1):
+            attempt = attempts[selected[-1]]
+            row.update(
+                last_attempt=attempt["started_at"],
+                latest_attempt_state="Not tested",
+                run_url=attempt["run_url"],
+                error="No validated profile result in this workflow attempt",
             )
-            if not source_records and not newer_record:
-                row.update(
-                    last_attempt=attempt["started_at"],
-                    latest_attempt_state="Not tested",
-                    run_url=attempt["run_url"],
-                    error="No validated profile result in this workflow attempt",
-                )
-        row.pop("history")
     return {
         "schema_version": 1,
         "repository": repository,

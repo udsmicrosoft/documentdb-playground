@@ -61,12 +61,13 @@ def source_run(attempt):
     }
 
 
-def incoming_report(path, record, *, include_result=True):
+def incoming_report(path, record, *, include_result=True, trigger=None):
     path.mkdir()
     profile = {**readme.profile_from_result(record), "demonstration": record["demonstration"]}
-    (path / "summary.json").write_text(
-        json.dumps({"schema_version": 1, "success": True, "integrations": [profile], "errors": []})
-    )
+    summary = {"schema_version": 1, "success": True, "integrations": [profile], "errors": []}
+    if trigger is not None:
+        summary["trigger"] = trigger
+    (path / "summary.json").write_text(json.dumps(summary))
     if include_result:
         append_result(path / "results", record)
     return path
@@ -123,6 +124,19 @@ def test_real_profile_evidence_drives_svg_json_and_accessible_details(
     assert "Results apply only" not in details
 
 
+@pytest.mark.parametrize("trigger", ["scheduled", "documentdb_release"])
+def test_scheduled_and_release_reports_publish_like_manual_reports(
+    tmp_path, registry, published_record, attempt, trigger
+):
+    record = {**published_record, "trigger": trigger}
+    incoming = incoming_report(tmp_path / "incoming", record, trigger=trigger)
+    data = tmp_path / "data"
+    readme.ingest({"action": "publish", "attempt": attempt}, ROOT, incoming, data, REPOSITORY)
+    view = readme.snapshot(data, registry, REPOSITORY, datetime.now(timezone.utc))
+    assert view["latest_workflow"]["errors"] == []
+    assert selected_row(view, record)["state"] == "Working"
+
+
 def test_missing_latest_artifact_does_not_inherit_an_earlier_pass(
     tmp_path, registry, published_record, attempt
 ):
@@ -147,6 +161,32 @@ def test_missing_latest_artifact_does_not_inherit_an_earlier_pass(
     assert row["run_url"] == later["run_url"] and view["latest_workflow"]["errors"]
     assert view["latest_workflow"]["conclusion"] == "failure"
     assert "pymongo: Not tested" in readme.badge_svg(view, "pymongo")
+
+
+@pytest.mark.parametrize("evidence", ["missing", "failed"])
+def test_newer_workflow_attempt_outranks_later_test_start(
+    tmp_path, registry, published_record, attempt, evidence
+):
+    append_result(tmp_path / "results", published_record)
+    readme.save_attempt(tmp_path, attempt, REPOSITORY)
+    newer = deepcopy(attempt)
+    newer.update(
+        run_id=43,
+        run_url=readme.run_url(REPOSITORY, 43, 1),
+        started_at=(timestamp(published_record["started_at"]) - timedelta(seconds=5)).isoformat(),
+        conclusion="failure",
+    )
+    failed = deepcopy(published_record)
+    failed.update(id="b" * 32, run_url=newer["run_url"], started_at=newer["started_at"])
+    failed["tests"][0]["outcome"] = "failed"
+    incoming = incoming_report(tmp_path / "incoming", failed, include_result=evidence == "failed")
+    readme.ingest({"action": "publish", "attempt": newer}, ROOT, incoming, tmp_path, REPOSITORY)
+    view = readme.snapshot(tmp_path, registry, REPOSITORY, datetime.now(timezone.utc))
+    row = selected_row(view, published_record)
+    expected = ("Working", "Not tested") if evidence == "missing" else ("Failing", "Failing")
+    assert (row["state"], row["latest_attempt_state"]) == expected
+    assert row["run_url"] == newer["run_url"] and view["latest_workflow"]["run_id"] == 43
+    assert f"pymongo: {expected[1]}" in readme.badge_svg(view, "pymongo")
 
 
 def test_failure_before_a_report_exists_is_visible(tmp_path, registry, attempt):
@@ -302,6 +342,15 @@ def test_untrusted_source_runs_are_rejected(source_run, invalid):
         source_run["run_started_at"] = (datetime.now(timezone.utc) + timedelta(days=1)).isoformat()
     with pytest.raises(ValueError):
         readme.source_attempt(source_run, workflow, REPOSITORY, "main")
+
+
+@pytest.mark.parametrize("event", ["workflow_dispatch", "schedule"])
+def test_dispatched_and_scheduled_source_runs_are_accepted(source_run, event):
+    workflow = {"path": readme.WORKFLOW_PATH, "id": source_run["workflow_id"]}
+    source_run["event"] = event
+    assert readme.source_attempt(source_run, workflow, REPOSITORY, "main")["run_id"] == (
+        source_run["id"]
+    )
 
 
 def test_prepare_keeps_failed_runs_and_ignores_demonstrations(source_run, monkeypatch):
