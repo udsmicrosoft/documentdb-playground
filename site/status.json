@@ -1,7 +1,7 @@
 {
   "integrations": [
     {
-      "conclusive_at": "2026-11-10T13:46:10.885038+00:00",
+      "conclusive_at": "2026-11-11T12:58:05.713365+00:00",
       "demonstration": false,
       "detection_id": null,
       "documentdb_version": "0.117.0",
@@ -9,15 +9,15 @@
       "expected": 17,
       "freshness_days": 7,
       "integration": "mongoose",
-      "last_attempt": "2026-11-10T13:46:10.885038+00:00",
-      "last_success": "2026-11-10T13:46:10.885038+00:00",
+      "last_attempt": "2026-11-11T12:58:05.713365+00:00",
+      "last_success": "2026-11-11T12:58:05.713365+00:00",
       "latest_attempt_state": "Working",
       "owner": "@documentdb/documentdb-maintainers",
       "passed": 17,
       "previous_state": "Working",
       "profile": "node24-linux-x64-mongoose",
       "repository": "https://github.com/Automattic/mongoose",
-      "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/42827407774/attempts/1",
+      "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/43024757763/attempts/1",
       "scenarios": [
         "test_authenticated_ping",
         "test_model_create",
@@ -42,7 +42,7 @@
       "upstream_version": "9.11.0"
     },
     {
-      "conclusive_at": "2026-11-10T13:46:01.985599+00:00",
+      "conclusive_at": "2026-11-11T12:57:54.776565+00:00",
       "demonstration": false,
       "detection_id": null,
       "documentdb_version": "0.117.0",
@@ -50,15 +50,15 @@
       "expected": 17,
       "freshness_days": 7,
       "integration": "nodejs",
-      "last_attempt": "2026-11-10T13:46:01.985599+00:00",
-      "last_success": "2026-11-10T13:46:01.985599+00:00",
+      "last_attempt": "2026-11-11T12:57:54.776565+00:00",
+      "last_success": "2026-11-11T12:57:54.776565+00:00",
       "latest_attempt_state": "Working",
       "owner": "@documentdb/documentdb-maintainers",
       "passed": 17,
       "previous_state": "Working",
       "profile": "node24-linux-x64-async",
       "repository": "https://github.com/mongodb/node-mongodb-native",
-      "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/42827407774/attempts/1",
+      "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/43024757763/attempts/1",
       "scenarios": [
         "test_authenticated_ping",
         "test_insert_one",
@@ -83,7 +83,7 @@
       "upstream_version": "7.7.0"
     },
     {
-      "conclusive_at": "2026-11-10T13:46:02.503800+00:00",
+      "conclusive_at": "2026-11-11T12:57:56.482964+00:00",
       "demonstration": false,
       "detection_id": null,
       "documentdb_version": "0.117.0",
@@ -91,15 +91,15 @@
       "expected": 17,
       "freshness_days": 7,
       "integration": "pymongo",
-      "last_attempt": "2026-11-10T13:46:02.503800+00:00",
-      "last_success": "2026-11-10T13:46:02.503800+00:00",
+      "last_attempt": "2026-11-11T12:57:56.482964+00:00",
+      "last_success": "2026-11-11T12:57:56.482964+00:00",
       "latest_attempt_state": "Working",
       "owner": "@documentdb/documentdb-maintainers",
       "passed": 17,
       "previous_state": "Working",
       "profile": "python312-linux-x64-sync",
       "repository": "https://github.com/mongodb/mongo-python-driver",
-      "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/42827407774/attempts/1",
+      "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/43024757763/attempts/1",
       "scenarios": [
         "test_authenticated_ping",
         "test_insert_one",
@@ -150,10 +150,10 @@
     ],
     "repository": "udsmicrosoft/documentdb-playground",
     "run_attempt": 1,
-    "run_id": 42827407774,
-    "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/42827407774/attempts/1",
+    "run_id": 43024757763,
+    "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/43024757763/attempts/1",
     "schema_version": 1,
-    "started_at": "2026-11-10T13:45:18Z"
+    "started_at": "2026-11-11T12:57:03Z"
   },
   "preview": true,
   "repository": "udsmicrosoft/documentdb-playground",
