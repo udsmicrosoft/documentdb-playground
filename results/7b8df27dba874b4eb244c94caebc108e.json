@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "id": "7b8df27dba874b4eb244c94caebc108e",
+  "integration": "mongoose",
+  "repository": "https://github.com/Automattic/mongoose",
+  "owner": "@documentdb/documentdb-maintainers",
+  "profile": "node24-linux-x64-mongoose",
+  "suite_digest": "24a5d9a79ddb1c8997c5c02c766adbce47eb16dad4afd1f68c181748b2929eb7",
+  "documentdb": {
+    "version": "0.117.0",
+    "image": "ghcr.io/documentdb/documentdb/documentdb-local@sha256:d972e7145da660ad4892ce6f5c22039086ff5148dce7225f20b76af959cd2ce0",
+    "actual_extension_version": null,
+    "actual_postgres_version": null
+  },
+  "upstream": {
+    "version": "9.11.0",
+    "actual_version": null,
+    "artifact_sha256": "16462a9b262c294fabf80739d6e999a9a511e697ef5ef4786a48885a8c051fbb",
+    "client_image": "sha256:9fcb3f4a0c8cbc3ec53142b9d3c0cc1db314ee2fae61ccbb778cc120b0c3b9de",
+    "runtime": {
+      "name": "nodejs",
+      "version": null
+    },
+    "dependencies": []
+  },
+  "expected_tests": [
+    "test_authenticated_ping",
+    "test_model_create",
+    "test_insert_many",
+    "test_find_by_id",
+    "test_find_filter_projection_sort_limit",
+    "test_cursor_batches",
+    "test_count_documents",
+    "test_document_save",
+    "test_update_one",
+    "test_find_one_and_update",
+    "test_delete_one",
+    "test_delete_many",
+    "test_aggregate",
+    "test_schema_indexes",
+    "test_duplicate_key_error",
+    "test_schema_validation",
+    "test_bson_round_trip"
+  ],
+  "tests": [],
+  "started_at": "2026-11-25T16:02:46.890287+00:00",
+  "finished_at": "2026-11-25T16:04:52.486858+00:00",
+  "trigger": "scheduled",
+  "run_url": "https://github.com/udsmicrosoft/documentdb-playground/actions/runs/45650553870/attempts/1",
+  "demonstration": false,
+  "execution_error": "RuntimeError: Database exited before readiness: Release Version: 0.117-0 (commit 28cc012070ce798361ed265251ec159180b7889f, built 2026-09-10T01:30:48Z, postgresql 17)\n[ENTRYPOINT] DocumentDB container starting...\n[ENTRYPOINT] Log streaming will be enabled for PostgreSQL logs\nSetting up centralized log directory at /var/log/documentdb...\nCentralized log directory created with the following structure:\n  /var/log/documentdb/gateway_entrypoint.log\n  /var/log/documentdb/gateway.log\n  /var/log/documentdb/oss_server.log\n  /var/log/documentdb/postgres/pglog.log (will be symlinked)\nUsing username: compat_user\nUsing owner: documentdb\nUsing data path: /data\nStarting PostgreSQL server on port 9712...\nEnsuring proper permissions on data directory: /data\nSetting ownership of /data to documentdb:documentdb\nSetting permissions on /data\nStarting OSS server...\nOption a needs a valid argument. use -h to get help.\nOSS server started.\n[ENTRYPOINT] Setting up PostgreSQL log streaming...\nSetting up PostgreSQL log streaming from /var/log/documentdb/postgres/pglog.log...\nWarning: PostgreSQL log file not found at /data/pglog.log\nLog file /var/log/documentdb/postgres/pglog.log not found, skipping streaming\nStarting log streaming from /var/log/postgresql/postgresql-17-main.log with prefix [POSTGRES-SYSTEM]...\nLog streaming started with PID: 68\nStarting log streaming from /var/log/documentdb/oss_server.log with prefix [OSS-SERVER]...\nLog streaming started with PID: 70\nChecking if PostgreSQL is running...\n[OSS-SERVER] Option a needs a valid argument. use -h to get help.\nPostgreSQL failed to start within 60 seconds.\nOption a needs a valid argument. use -h to get help.\n"
+}
